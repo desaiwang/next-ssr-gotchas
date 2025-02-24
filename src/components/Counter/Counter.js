@@ -6,9 +6,10 @@ function Counter() {
 
   //run upon mounting on client
   React.useEffect(() => {
-    const savedValue = window.localStorage.getItem("saved-count");
+    const savedValue = Number(window.localStorage.getItem("saved-count"));
 
-    if (savedValue === null) {
+    if (!savedValue) {
+      //this catches both null and 0
       return;
     }
 
